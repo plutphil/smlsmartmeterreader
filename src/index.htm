@@ -1,0 +1,44 @@
+<meta charset="utf-8">
+<style>
+body{
+    margin: 0px;
+    background-color: #111;
+}
+.c{
+    font-size: 40pt;
+    margin: auto;
+    text-align: center;
+    background-color: #333;
+    color: #eee;
+    padding: 5pt;
+}
+.a{
+    margin: auto;
+    display: block;
+    text-align: center;
+}
+</style>
+<div class="a">
+<div class="c">
+    🔌Energy Meter⚡
+</div>
+<div class="c">Usage:</div>
+<div class="c"><span id="w"></span> W</div>
+<div class="c"><span id="kwh"></span> kWh</div>
+</div>
+<script>
+var d = document;
+var $ = (e)=>d.getElementById(e);
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     $("w").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://"+document.location.host+"/s", true);
+  xhttp.send();
+}
+setTimeout()
+document.onload=loadDoc();
+</script>
